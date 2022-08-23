@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agnak Contact Verification: NPPES Contact Verification Web App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            /* background: #8d90ca; */
+            background-color: #5256ad;
+        }
+
+        .app-name {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .drop-area {
+            width: 70%;
+            max-height: 500px;
+            border: 2px dashed #fff;
+            border-radius: 5px;
+            /* background-color: #5256ad; */
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+
+        .drop-area.active {
+            border: 2px solid #fff;
+            opacity: 0.8;
+        }
+        
+        .drop-area #upload-icon {
+            font-size: 80px;
+            color: #fff;
+        }
+
+        .drop-area .drop-header-txt {
+            font-size: 30px;
+            font-weight: 500;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            background: #fff;
+            color: #5256ad;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+
+        .drop-area #upload-form #select-file-input {
+            display: none;
+        }
+
+        #progress-container {
+            width: 70%;
+            height: 10px;
+            background-color: rgb(93, 90, 90);
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            position: relative;
+            margin: 30px 0;
+            display: none;
+        }
+
+        #progress-container #progress-bar {
+            width: 0%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #8d90ca;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        #download-wrapper {
+            color: white;
+            font-size: 20px;
+            display: flex;
+            display: none;
+        }
+
+        #download-file-btn {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 class="app-name">Agnak NPPES Contact Verification Web App</h1>
+
+    <div class="drop-area">
+        <div id="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <span class="drop-header-txt" id="drag-area-header">Drag and Drop an Excel File to Upload It</span>
+        <span class="drop-header-txt">OR</span>
+        <form id="upload-form">
+            <input id="select-file-input" type="file" name="excel_file">
+        </form>
+        <button class="btn" id="select-file-btn">Select an Excel File</button>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="download-wrapper">
+            <div id="res-loading-status">
+                <p id="loading-txt"><i class="fas fa-pulse fa-spinner" style="margin-right: 5px;"></i> Please wait, the file is being proccessed...</p>
+            </div>
+            <button class="btn" id="download-file-btn"><i class="fas fa-download" style="margin-right: 5px;"></i> Donwload</button>
+        </div>
+    </div>
+
+    <script>
+        //selecting all the required elements
+        const dropArea = document.querySelector(".drop-area"),
+            dragText = document.getElementById("drag-area-header"),
+            select_file_btn = document.getElementById("select-file-btn"),
+            download_file_btn = document.getElementById("download-file-btn"),
+            file_input = document.getElementById("select-file-input"),
+            download_wrapper = document.getElementById("download-wrapper"),
+            progressContainer = document.getElementById("progress-container"),
+            progressBar = document.getElementById("progress-bar");
+        let file = null; // this a global variable for assigning the selected file later
+        let res = null;
+
+        //when the select file button will be clicked the file input element will also be clicked
+        select_file_btn.onclick = () => {
+            file_input.click(); //if the user click on the button then the input form element will also get clicked
+        }
+
+        download_file_btn.addEventListener("click", () => {
+            console.log(res.filename)
+            fetch(`http://localhost:3000/download-file?file_name=${res.filename}`)
+            console.log("fetched")
+        })
+        
+        file_input.addEventListener("change", function () {
+            //getting the selected file 
+            file = this.files[0];
+            uploadFile(file)
+        });
+
+
+        //If the user drag a file over the dropArea
+        dropArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropArea.classList.add("active");
+            dragText.textContent = "Release to Upload File";
+        });
+
+        // If the user leave the dragged File from DropArea
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.classList.remove("active");
+            dragText.textContent = "Drag and Drop an Excel File to Upload";
+        });
+
+        //If the user drop a file on the DropArea
+        dropArea.addEventListener("drop", (e) => {
+            e.preventDefault();
+            file = e.dataTransfer.files[0]; //getting the selected file
+            dropArea.classList.remove("active");
+            dragText.textContent = "Drag and Drop an Excel File to Upload";
+            uploadFile(file); //calling this function for uploading the excel file
+        });
+
+        // for uploading the selected file
+        function uploadFile(file) {
+            const file_type = file.type;
+            if (file_type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                const formData = new FormData();
+                formData.append("excel_file", file);
+                const req = new XMLHttpRequest();
+                req.open('POST', 'http://localhost:3000/upload-file');
+
+                req.upload.addEventListener('progress', function (e) {
+                    const percentComplete = (e.loaded / e.total) * 100;
+                    progressContainer.style.display = "block";
+                    progressBar.style.width = Math.round(percentComplete) + "%";
+                })
+
+                req.addEventListener('loadstart', function () {
+                    dropArea.removeChild(progressContainer);
+                    download_wrapper.style.display = "block";
+                })
+
+                req.addEventListener("loadend" , function() {
+                    res = req.response;
+                    download_file_btn.style.display = "block";
+                    let res_loading_status = document.getElementById("res-loading-status");
+                    // download_wrapper.removeChild(res_loading_status);
+                    download_wrapper.style.display = "none"
+                    console.log(res);
+                })
+
+                //sending the excel file to the server
+                req.send(formData);
+            } else {
+                alert("You must select an excel(.xlsx) file for uploading");
+            }
+        }
+    </script>
+</body>
+</html>

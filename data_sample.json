@@ -1,0 +1,336 @@
+{
+"result_count":4, "results":[
+{
+    "addresses": [
+        {
+            "address_1": "8100 SW 81 DRIVE SUITE 241",
+            "address_2": "KINGS CREEK THERAPEUTIC MASSAGE",
+            "address_purpose": "LOCATION",
+            "address_type": "DOM",
+            "city": "MIAMI",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "33143",
+            "state": "FL",
+            "telephone_number": "305-271-7781"
+        },
+        {
+            "address_1": "8100 SW 81 DRIVE SUITE 241",
+            "address_2": "KINGS CREEK THERAPEUTIC MASSAGE INC.",
+            "address_purpose": "MAILING",
+            "address_type": "DOM",
+            "city": "MIAMI",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "33143",
+            "state": "FL",
+            "telephone_number": "305-271-7781"
+        }
+    ],
+    "basic": {
+        "credential": "LMT",
+        "enumeration_date": "2008-10-22",
+        "first_name": "PAUL",
+        "gender": "M",
+        "last_name": "FOLEY",
+        "last_updated": "2008-10-22",
+        "middle_name": "EDWARD",
+        "name": "FOLEY PAUL",
+        "name_prefix": "MR.",
+        "sole_proprietor": "NO",
+        "status": "A"
+    },
+    "created_epoch": 1224633600,
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+        {
+            "code": "01",
+            "desc": "Other",
+            "identifier": "C5731",
+            "issuer": "BC/BS",
+            "state": "FL"
+        }
+    ],
+    "last_updated_epoch": 1224633600,
+    "number": 1225280167,
+    "other_names": [],
+    "taxonomies": [
+        {
+            "code": "225700000X",
+            "desc": "Massage Therapist",
+            "license": "MA3037",
+            "primary": true,
+            "state": "FL"
+        }
+    ]
+},{
+    "addresses": [
+        {
+            "address_1": "2400 W DUNLAP AVE STE 100",
+            "address_2": "",
+            "address_purpose": "LOCATION",
+            "address_type": "DOM",
+            "city": "PHOENIX",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "850212813",
+            "state": "AZ",
+            "telephone_number": "602-325-2485"
+        },
+        {
+            "address_1": "21600 OXNARD ST STE 1800",
+            "address_2": "",
+            "address_purpose": "MAILING",
+            "address_type": "DOM",
+            "city": "WOODLAND HILLS",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "913677807",
+            "state": "CA"
+        }
+    ],
+    "basic": {
+        "certification_date": "2020-06-01",
+        "enumeration_date": "2020-06-01",
+        "first_name": "PAUL",
+        "gender": "M",
+        "last_name": "FOLEY",
+        "last_updated": "2020-06-01",
+        "middle_name": "HARGITT",
+        "name": "FOLEY PAUL",
+        "sole_proprietor": "NO",
+        "status": "A"
+    },
+    "created_epoch": 1590969600,
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": 1591029558,
+    "number": 1124642624,
+    "other_names": [],
+    "taxonomies": [
+        {
+            "code": "106S00000X",
+            "desc": "Behavior Technician",
+            "license": "",
+            "primary": true,
+            "state": ""
+        }
+    ]
+},{
+    "addresses": [
+        {
+            "address_1": "280 EXEMPLA CIR",
+            "address_2": "",
+            "address_purpose": "LOCATION",
+            "address_type": "DOM",
+            "city": "LAFAYETTE",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "800263370",
+            "state": "CO",
+            "telephone_number": "303-338-4545"
+        },
+        {
+            "address_1": "10350 E DAKOTA AVE",
+            "address_2": "",
+            "address_purpose": "MAILING",
+            "address_type": "DOM",
+            "city": "DENVER",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "802471314",
+            "state": "CO"
+        }
+    ],
+    "basic": {
+        "certification_date": "2021-04-26",
+        "credential": "M.D.",
+        "enumeration_date": "2007-02-27",
+        "first_name": "PAUL",
+        "gender": "M",
+        "last_name": "FOLEY",
+        "last_updated": "2021-04-26",
+        "middle_name": "A",
+        "name": "FOLEY PAUL",
+        "name_prefix": "DR.",
+        "sole_proprietor": "NO",
+        "status": "A"
+    },
+    "created_epoch": 1172534400,
+    "endpoints": [
+        {
+            "address_1": "280 EXEMPLA CIR",
+            "address_2": "",
+            "address_type": "DOM",
+            "affiliation": "N",
+            "affiliationName": "",
+            "city": "LAFAYETTE",
+            "contentOtherDescription": "C-CDA",
+            "contentType": "OTHER",
+            "contentTypeDescription": "Other",
+            "country_code": "US",
+            "country_name": "United States",
+            "endpoint": "https://careepiceast.kp.org:14430/Interconnect-prodcom/wcf/epic.community.hie/xcpdrespondinggateways",
+            "endpointDescription": "CAREQUALITY",
+            "endpointType": "SOAP",
+            "endpointTypeDescription": "SOAP URL",
+            "postal_code": "800263370",
+            "state": "CO",
+            "use": "HIE",
+            "useDescription": "Health Information Exchange (HIE)",
+            "useOtherDescription": ""
+        }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [
+        {
+            "code": "01",
+            "desc": "Other",
+            "identifier": "015522",
+            "issuer": "KAISER-COMMERCIAL NUMBER",
+            "state": ""
+        },
+        {
+            "code": "05",
+            "desc": "MEDICAID",
+            "identifier": "01335652",
+            "issuer": "",
+            "state": "CO"
+        }
+    ],
+    "last_updated_epoch": 1619437031,
+    "number": 1134256142,
+    "other_names": [],
+    "taxonomies": [
+        {
+            "code": "2084N0400X",
+            "desc": "Psychiatry & Neurology Neurology",
+            "license": "33565",
+            "primary": true,
+            "state": "CO"
+        }
+    ]
+},{
+    "addresses": [
+        {
+            "address_1": "599 W STATE ST STE 302",
+            "address_2": "",
+            "address_purpose": "LOCATION",
+            "address_type": "DOM",
+            "city": "DOYLESTOWN",
+            "country_code": "US",
+            "country_name": "United States",
+            "fax_number": "215-230-6983",
+            "postal_code": "189012567",
+            "state": "PA",
+            "telephone_number": "215-230-6982"
+        },
+        {
+            "address_1": "PO BOX 829641",
+            "address_2": "",
+            "address_purpose": "MAILING",
+            "address_type": "DOM",
+            "city": "PHILADELPHIA",
+            "country_code": "US",
+            "country_name": "United States",
+            "fax_number": "215-230-3725",
+            "postal_code": "191820001",
+            "state": "PA",
+            "telephone_number": "672-370-5295"
+        }
+    ],
+    "basic": {
+        "certification_date": "2021-04-27",
+        "credential": "MD",
+        "enumeration_date": "2007-01-19",
+        "first_name": "PAUL",
+        "gender": "M",
+        "last_name": "FOLEY",
+        "last_updated": "2021-04-27",
+        "middle_name": "J",
+        "name": "FOLEY PAUL",
+        "name_suffix": "III",
+        "sole_proprietor": "NO",
+        "status": "A"
+    },
+    "created_epoch": 1169164800,
+    "endpoints": [
+        {
+            "address_1": "2 CAPITAL WAY STE 356",
+            "address_2": "",
+            "address_type": "DOM",
+            "affiliation": "N",
+            "affiliationName": "",
+            "city": "PENNINGTON",
+            "contentOtherDescription": "",
+            "contentType": "CSV",
+            "contentTypeDescription": "CSV",
+            "country_code": "US",
+            "country_name": "United States",
+            "endpoint": "paul.foley.1@12833.direct.athenahealth.com",
+            "endpointDescription": "",
+            "endpointType": "DIRECT",
+            "endpointTypeDescription": "Direct Messaging Address",
+            "postal_code": "085342521",
+            "state": "NJ",
+            "use": "DIRECT",
+            "useDescription": "Direct",
+            "useOtherDescription": ""
+        }
+    ],
+    "enumeration_type": "NPI-1",
+    "identifiers": [],
+    "last_updated_epoch": 1619518437,
+    "number": 1326191768,
+    "other_names": [],
+    "practiceLocations": [
+        {
+            "address_1": "2 CAPITAL WAY STE 356",
+            "address_2": "",
+            "address_type": "DOM",
+            "city": "PENNINGTON",
+            "country_code": "US",
+            "country_name": "United States",
+            "fax_number": "609-537-6002",
+            "postal_code": "085342521",
+            "state": "NJ",
+            "telephone_number": "609-537-6000",
+            "update_date": "2021-04-27 10:04"
+        },
+        {
+            "address_1": "2 CAPITAL WAY STE 456",
+            "address_2": "",
+            "address_type": "DOM",
+            "city": "PENNINGTON",
+            "country_code": "US",
+            "country_name": "United States",
+            "fax_number": "609-537-7302",
+            "postal_code": "085342521",
+            "state": "NJ",
+            "telephone_number": "609-537-7300",
+            "update_date": "2021-04-27 10:04"
+        },
+        {
+            "address_1": "3400 SPRUCE STREET",
+            "address_2": "4 SILVERSTEIN",
+            "address_type": "DOM",
+            "city": "PHILADELPHIA",
+            "country_code": "US",
+            "country_name": "United States",
+            "postal_code": "19104",
+            "state": "PA",
+            "telephone_number": "215-615-4949",
+            "update_date": "2020-04-21 12:04"
+        }
+    ],
+    "taxonomies": [
+        {
+            "code": "2086S0129X",
+            "desc": "Surgery Vascular Surgery",
+            "license": "MD425590",
+            "primary": true,
+            "state": "PA"
+        }
+    ]
+}
+]}
