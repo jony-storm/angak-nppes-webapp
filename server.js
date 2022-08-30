@@ -5,6 +5,7 @@ const reader = require("xlsx");
 const fetch_rec = require("./fetch_rec");
 const exc_gen_output = require("./match_rec");
 const fs = require("fs");
+const ngrok = require('ngrok')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -122,3 +123,16 @@ app.get("/download-file", (req, res) => {
 app.listen(3000, () => {
   console.log(`Server started...`);
 });
+
+ngrok.connect(
+  {
+    proto: "http",
+    addr: process.env.PORT,
+  },
+  (err, url) => {
+    if (err) {
+      console.error("Error while connecting Ngrok", err);
+      return new Error("Ngrok Failed");
+    }
+  }
+);
